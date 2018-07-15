@@ -3,6 +3,7 @@
 #include<stdlib.h>
 #include<conio.h>
 #include<time.h>
+#include<windows.h>
 int R();
 int L();
 int U();
@@ -10,6 +11,12 @@ int D();
 int Ram();
 int FRam();
 int cov[4][4],cov2[4][4];
+void SetColor(int f=7,int b=0)
+{
+    unsigned short ForeColor=f+16*b;
+    HANDLE hCon = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hCon,ForeColor);
+}
 int main()
 {
 	int Temp[16],temp;
@@ -19,7 +26,8 @@ int main()
 	while(1)
 	{
 		system("cls");
-		printf("			2048\n\n");
+		SetColor(4,7);
+		printf("2048\n\n");
 		printf("┌────┬────┬────┬────┐\n");
 		printf("│        │        │        │        │\n");
 		printf("│  %4d  │  %4d  │  %4d  │  %4d  │\n",cov[0][0],cov[0][1],cov[0][2],cov[0][3]);
@@ -37,6 +45,7 @@ int main()
 		printf("│  %4d  │  %4d  │  %4d  │  %4d  │\n",cov[3][0],cov[3][1],cov[3][2],cov[3][3]);
 		printf("│        │        │        │        │\n");
 		printf("└────┴────┴────┴────┘\n");
+		SetColor();
 		ch1 = getch();
 		if(ch1 == -32)
 		{
