@@ -1,3 +1,4 @@
+//目前測試 windows 7的格式不會有問題(背景)//
 #include<iostream>
 #include<stdlib.h>
 #include<conio.h>
